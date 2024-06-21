@@ -24,3 +24,5 @@ def train_save_model(cleaned_df, outcome_df):
 
     # Save the model
     joblib.dump(model, "model.joblib")
+
+predict_outcomes(mydata)
