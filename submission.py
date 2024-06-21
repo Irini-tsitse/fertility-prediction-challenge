@@ -31,7 +31,7 @@ def clean_df(df, background_df=None):
 
     return features
 
-def predict_outcomes(df, background_df=None, model_path="model.joblib"):
+def predict_outcomes(df, background_df=None, model_path="model_coding_babies.joblib"):
   ## This script contains a bare minimum working example
     if "nomem_encr" not in df.columns:
         print("The identifier variable 'nomem_encr' should be in the dataset")
