@@ -22,21 +22,14 @@ import joblib
 
 
 def clean_df(df, background_df=None):
-    y_missing = mydata['outcome_available'] == 0
-    mydata = mydata.drop(mydata[y_missing].index, axis='rows')
-#outcome = outcome.drop(outcome[y_missing].index, axis='rows')
+    y_missing = df['outcome_available'] == 0
+    df = df.drop(mydata[y_missing].index, axis='rows')
     selected_columns = ["cf20m024","cf20m128","cf20m180","ci20m006","ci20m261","nomem_encr"]
-    features = mydata[selected_columns]
+    features = df[selected_columns]
     X_isna = features.isna().any(axis=1)
     features = features.drop(features[X_isna].index)
 
     return features
-
-clean_df(mydata)
-cleaned_data = clean_df(mydata)
-
-from sklearn.linear_model import LogisticRegression
-train_save_model(cleaned_data, outcome)
 
 def predict_outcomes(df, background_df=None, model_path="model.joblib"):
   ## This script contains a bare minimum working example
