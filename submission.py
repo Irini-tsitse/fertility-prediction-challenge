@@ -23,7 +23,7 @@ import joblib
 
 def clean_df(df, background_df=None):
     y_missing = df['outcome_available'] == 0
-    df = df.drop(mydata[y_missing].index, axis='rows')
+    df = df.drop(df[y_missing].index, axis='rows')
     selected_columns = ["cf20m024","cf20m128","cf20m180","ci20m006","ci20m261","nomem_encr"]
     features = df[selected_columns]
     X_isna = features.isna().any(axis=1)
