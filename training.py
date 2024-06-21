@@ -23,6 +23,6 @@ def train_save_model(cleaned_df, outcome_df):
     model.fit(model_df[["cf20m024","cf20m128","cf20m180","ci20m006","ci20m261"]], model_df['new_child'])
 
     # Save the model
-    joblib.dump(model, "model.joblib")
+    joblib.dump(model, "model_coding_babies.joblib")
 
 predict_outcomes(mydata)
